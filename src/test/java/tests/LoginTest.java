@@ -29,8 +29,10 @@ public class LoginTest extends BaseTest {
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
 
-        pause(500);
-        assertTrue(driver.getCurrentUrl().contains("/"),
+        boolean condition1 = mainePage.isUserLoggedIn();
+        boolean condition2 = mainePage.invisibilityLoginButton();
+        //Проверка, что кнопка 'Оформить заказ' видна или 'Войти в аккаунт' не видна
+        assertTrue(condition1||condition2,
                 "После входа должна открыться главная страница");
 
         // Сохраняем токен для удаления
@@ -54,8 +56,10 @@ public class LoginTest extends BaseTest {
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
 
-        pause(500);
-        assertTrue(driver.getCurrentUrl().contains("/"),
+        boolean condition1 = mainePage.isUserLoggedIn();
+        boolean condition2 = mainePage.invisibilityLoginButton();
+
+        assertTrue(condition1||condition2,
                 "После входа должна открыться главная страница");
 
         Authorization auth = new Authorization(email, password, name);
@@ -80,8 +84,10 @@ public class LoginTest extends BaseTest {
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
 
-        pause(500);
-        assertTrue(driver.getCurrentUrl().contains("/"),
+        boolean condition1 = mainePage.isUserLoggedIn();
+        boolean condition2 = mainePage.invisibilityLoginButton();
+
+        assertTrue(condition1||condition2,
                 "После входа должна открыться главная страница");
 
         Authorization auth = new Authorization(email, password, name);
@@ -106,8 +112,10 @@ public class LoginTest extends BaseTest {
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
 
-        pause(500);
-        assertTrue(driver.getCurrentUrl().contains("/"),
+        boolean condition1 = mainePage.isUserLoggedIn();
+        boolean condition2 = mainePage.invisibilityLoginButton();
+
+        assertTrue(condition1||condition2,
                 "После входа должна открыться главная страница");
 
         Authorization auth = new Authorization(email, password, name);

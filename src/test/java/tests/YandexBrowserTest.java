@@ -16,8 +16,5 @@ public class YandexBrowserTest extends BaseTest {
         String currentUrl = driver.getCurrentUrl();
         assertTrue(currentUrl.contains("stellarburgers"),
                 "Страница должна загрузиться успешно");
-
-        // Небольшая пауза, чтобы увидеть результат
-        pause(3000);
     }
 }

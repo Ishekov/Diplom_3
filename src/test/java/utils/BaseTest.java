@@ -62,12 +62,4 @@ public class BaseTest  {
     public String generateRandomName() {
         return faker.name().firstName();
     }
-
-    protected void pause(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            // ignore
-        }
-    }
 }

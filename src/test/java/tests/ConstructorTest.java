@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import utils.BaseTest;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Тесты конструктора")
@@ -13,8 +15,10 @@ public class ConstructorTest extends BaseTest {
     public void testNavigateToBuns() {
         mainePage.open();
         mainePage.clickSaucesSection();
+        mainePage.waitForActiveSection("Соусы");
+
         mainePage.clickBunsSection();
-        pause(500);
+        mainePage.waitForActiveSection("Булки");
 
         String activeSection = mainePage.getActiveSection();
         assertEquals("Булки", activeSection, "Активным должен быть раздел 'Булки'");
@@ -24,8 +28,7 @@ public class ConstructorTest extends BaseTest {
     public void testNavigateToSauces() {
         mainePage.open();
         mainePage.clickSaucesSection();
-        mainePage.getActiveSection();
-        pause(500);
+        mainePage.waitForActiveSection("Соусы");
 
         String activeSection = mainePage.getActiveSection();
         assertEquals("Соусы", activeSection, "Активным должен быть раздел 'Соусы'");
@@ -35,8 +38,7 @@ public class ConstructorTest extends BaseTest {
     public void testNavigateToFillings() {
         mainePage.open();
         mainePage.clickFillingsSection();
-        mainePage.getActiveSection();
-        pause(500);
+        mainePage.waitForActiveSection("Начинки");
 
         String activeSection = mainePage.getActiveSection();
         assertEquals("Начинки", activeSection, "Активным должен быть раздел 'Начинки'");

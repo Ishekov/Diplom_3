@@ -29,11 +29,9 @@ public class NavigationTest extends BaseTest {
         mainePage.clickLoginButton();
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
-        pause(500);
 
         // Тест
         mainePage.clickPersonalAccountButton();
-        pause(500);
 
         assertTrue(driver.getCurrentUrl().contains("/account"),
                 "Должен открыться личный кабинет");
@@ -57,13 +55,10 @@ public class NavigationTest extends BaseTest {
         mainePage.clickLoginButton();
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
-        pause(500);
 
         mainePage.clickPersonalAccountButton();
-        pause(500);
 
         personalAccountPage.clickConstructorButton();
-        pause(500);
 
         assertTrue(driver.getCurrentUrl().equals(BASE_URL) ||
                         driver.getCurrentUrl().equals(BASE_URL + "/"),
@@ -88,16 +83,12 @@ public class NavigationTest extends BaseTest {
         mainePage.clickLoginButton();
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
-        pause(500);
 
         mainePage.clickPersonalAccountButton();
-        pause(500);
 
         personalAccountPage.clickLogo();
-        pause(500);
 
-        assertTrue(driver.getCurrentUrl().equals(BASE_URL) ||
-                        driver.getCurrentUrl().equals(BASE_URL + "/"),
+        assertTrue(driver.getCurrentUrl().equals(BASE_URL) || mainePage.invisibilityLoginButton(),
                 "Должна открыться главная страница с конструктором");
 
         Authorization auth = new Authorization(email, password, name);

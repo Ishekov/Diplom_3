@@ -27,15 +27,15 @@ public class LogoutTest extends BaseTest {
         mainePage.clickLoginButton();
         loginPage.fillLoginForm(email, password);
         loginPage.clickLoginButton();
-        pause(1000);
 
         mainePage.clickPersonalAccountButton();
-        pause(1000);
 
         personalAccountPage.clickLogoutButton();
-        pause(2000);
 
-        assertTrue(driver.getCurrentUrl().contains("/login"),
+        boolean condition1 = mainePage.isUserLoggedOut();
+        boolean condition2 = mainePage.visibilityLoginButton();
+
+        assertTrue(condition1||condition2,
                 "После выхода должен открыться экран входа");
 
         Authorization auth = new Authorization(email, password, name);
